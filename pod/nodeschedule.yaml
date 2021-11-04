@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-3
+spec:
+  nodeSelector:
+    #node selet/ kubectl get node
+    kubernetes.io/hostname: gke-cluster-1-default-pool-4cd963fe-34bc
+  containers:
+  - name: container
+    image: kubetm/init

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-4                           # Pod 이름
+  labels:                               # Label 
+    type: web                           
+    lo: dev  
+spec:
+  nodeSelector:                         # Node 직접 지정시
+    kubernetes.io/hostname: k8s-node1   
+  containers:
+  - name: container                     # Container 이름
+    image: kubetm/init                  # 이미지 선택
+    ports:
+    - containerPort: 8080               
+    resources:                          # 자원 사용량 설정
+      requests:
+        memory: 1Gi
+      limits:
+        memory: 1Gi

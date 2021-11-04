@@ -1,0 +1,19 @@
+#node(pod share) in volume
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume-3
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: k8s-node1
+  containers:
+  - name: container
+    image: kubetm/init
+    volumeMounts:
+    - name: host-path
+      mountPath: /mount1
+  volumes:
+  - name : host-path
+    hostPath:
+      path: /node-v
+      type: DirectoryOrCreate
